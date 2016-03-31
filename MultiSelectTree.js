@@ -399,7 +399,7 @@ Ext.ux.FixedMultiSelectionModel = Ext.extend(Ext.tree.MultiSelectionModel, {
                      this.select(s.parentNode, e, e.shiftKey || e.ctrlKey);
                  }
              break;
-        };
+        }
     }
     	
 });
@@ -413,18 +413,18 @@ Ext.ux.MultiSelectTreeDragZone = Ext.extend(Ext.tree.TreeDragZone, {
 
 	isMultiSelect: true,
 
-	onBeforeDrag : function(data, e){
+	onBeforeDrag : function(data/*, e*/){
+		var c, l, node;
 		if (data.nodes && data.nodes.length > 0) {
-			for (var c=0;c<data.nodes.length;c++) {
-				n = data.nodes[c];
-				if (n.draggable === false || n.disabled) return false
+			for (c=0,l=data.nodes.length; c<l; c++) {
+				node = data.nodes[c];
+				if (node.draggable === false || node.disabled) return false;
 			}
 			return true;
 		} else if (data.node) {
-			if (data.node.draggable === false || data.node.disabled) return false			
+			if (data.node.draggable === false || data.node.disabled) return false;
 		}
 		return false;
-		
 	},
 	
 	alignElWithMouse: function(el, iPageX, iPageY) {
