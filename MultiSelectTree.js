@@ -191,7 +191,7 @@ Ext.ux.FixedMultiSelectionModel = Ext.extend(Ext.tree.MultiSelectionModel, {
 
 	// private single point for selectNode
 	selectNode: function(node, push) {
-		if (!n.disabled && !this.isSelected(node)) {
+		if (!node.disabled && !this.isSelected(node)) {
 			this.selNodes.push(node);
 			this.selMap[node.id] = node;
 			node.ui.onSelectedChange(true);
